@@ -46,29 +46,56 @@ Select any phone number on a webpage → Right-click → "WhatsApp Cleaner" → 
 
 ## 📦 Deployment
 
-### Manual Deployment
+### Option 1: GitHub Actions (Recommended)
+
+Automatic deployment on every push to `main`:
+
+1. **Get Cloudflare API Token:**
+   - Go to https://dash.cloudflare.com/profile/api-tokens
+   - Click "Create Token" → Use "Edit Cloudflare Workers" template
+   - Copy the generated token
+
+2. **Add Token to GitHub:**
+   - Go to your repo → Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Name: `CLOUDFLARE_API_TOKEN`
+   - Value: Paste your token
+   - Click "Add secret"
+
+3. **Push to main branch:**
+   ```bash
+   git push origin main
+   ```
+   GitHub Actions will automatically deploy! ✨
+
+### Option 2: Cloudflare Dashboard (Direct GitHub Integration)
+
+1. **Connect GitHub to Cloudflare:**
+   - Go to https://dash.cloudflare.com
+   - Workers & Pages → Create application → Pages → Connect to Git
+   - Click "Connect GitHub" and authorize Cloudflare
+   - Select repository: `whatsapp-worker`
+
+2. **Configure Build Settings:**
+   - Framework preset: `None`
+   - Build command: (leave empty)
+   - Build output directory: `/`
+   - Root directory: `/`
+
+3. **Environment Variables:**
+   - No environment variables needed
+
+4. **Deploy:**
+   - Click "Save and Deploy"
+   - Every push to `main` will auto-deploy
+
+### Option 3: Manual Deployment
 
 ```bash
 npm install -g wrangler
 wrangler login
 wrangler deploy
 ```
-
-### Auto-Deployment from GitHub
-
-This project includes GitHub Actions for automatic deployment:
-
-1. Get your Cloudflare API Token:
-   - Go to https://dash.cloudflare.com/profile/api-tokens
-   - Create Token → Use "Edit Cloudflare Workers" template
-   - Copy the token
-
-2. Add to GitHub Secrets:
-   - Go to your repo → Settings → Secrets and variables → Actions
-   - New repository secret: `CLOUDFLARE_API_TOKEN`
-   - Paste your token
-
-3. Push to `main` branch → Auto-deploys! ✨
 
 ## 📄 License
 
