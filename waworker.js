@@ -15,6 +15,6 @@ export default {
       return new Response('Number not valid', { status: 400 });
     }
 
-    return Response.redirect('https://wa.me/' + num, 302);
+    return Response.redirect('https://web.whatsapp.com/send/?phone=' + num + '&text&type=phone_number&app_absent=0', 302);
   }
 };

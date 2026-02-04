@@ -16,16 +16,16 @@ https://wa-cleaner.yourname.workers.dev/?q=PHONE_NUMBER
 
 | Input | Cleaned | Redirects to |
 |-------|---------|-------------|
-| `?q=34612345678` | `34612345678` | https://wa.me/34612345678 |
-| `?q=+34 612 34 56 78` | `34612345678` | https://wa.me/34612345678 |
-| `?q=(34) 612-345-678` | `34612345678` | https://wa.me/34612345678 |
-| `?q=0034612345678` | `34612345678` | https://wa.me/34612345678 |
+| `?q=34612345678` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
+| `?q=+34 612 34 56 78` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
+| `?q=(34) 612-345-678` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
+| `?q=0034612345678` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
 
 ## ✨ Features
 
 - Removes spaces, dashes, parentheses, and other non-numeric characters
 - Converts `00XX` prefix to international format `+XX`
-- Redirects directly to WhatsApp Web/App
+- Opens WhatsApp Web directly with the conversation ready
 - Returns 400 error for invalid/empty numbers
 
 ## 🔌 Browser Extension Integration
