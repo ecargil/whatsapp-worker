@@ -9,48 +9,90 @@ This worker accepts any phone number format (with spaces, dashes, parentheses, i
 ## 🚀 Usage
 
 ```
-https://wa-cleaner.yourname.workers.dev/?q=PHONE_NUMBER
+https://wa-cleaner.yourname.workers.dev/?action=ACTION&q=PHONE_NUMBER
 ```
+
+### Actions
+
+| Action | Description | Example URL |
+|--------|-------------|-------------|
+| `wchat` (default) | Open WhatsApp chat | `?action=wchat&q=34612345678` |
+| `wcall` | Call via WhatsApp | `?action=wcall&q=34612345678` |
+| `call` | Call via phone app | `?action=call&q=34612345678` |
+
+If no action is specified, defaults to `wchat`.
 
 ### Examples
 
+**WhatsApp Chat (default):**
 | Input | Cleaned | Redirects to |
 |-------|---------|-------------|
-| `?q=34612345678` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
+| `?action=wchat&q=34612345678` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
 | `?q=+34 612 34 56 78` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
-| `?q=(34) 612-345-678` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
-| `?q=0034612345678` | `34612345678` | https://web.whatsapp.com/send/?phone=34612345678 |
+
+**WhatsApp Call:**
+| Input | Cleaned | Redirects to |
+|-------|---------|-------------|
+| `?action=wcall&q=34612345678` | `34612345678` | https://wa.me/34612345678?call |
+
+**Phone Call:**
+| Input | Cleaned | Redirects to |
+|-------|---------|-------------|
+| `?action=call&q=34612345678` | `34612345678` | tel:34612345678 |
 
 ## ✨ Features
 
 - Removes spaces, dashes, parentheses, and other non-numeric characters
 - Converts `00XX` prefix to international format `+XX`
-- Opens WhatsApp Web directly with the conversation ready
+- Multiple actions:
+  - **wchat**: Opens WhatsApp Web chat
+  - **wcall**: Initiates WhatsApp call
+  - **call**: Opens phone dialer (tel: protocol)
 - Returns 400 error for invalid/empty numbers
 
 ## 🔌 Browser Extension Integration
 
 Perfect for use with **Context Menu Search** extension:
 
+**WhatsApp Chat:**
 ```json
 {
-  "id": "whatsapp-cleaner",
+  "id": "whatsapp-chat",
   "type": "search",
-  "name": "WhatsApp Cleaner",
-  "link": "https://wa-cleaner.yourname.workers.dev/?q=TESTSEARCH",
+  "name": "WhatsApp Chat",
+  "link": "https://wa-cleaner.yourname.workers.dev/?action=wchat&q=TESTSEARCH",
   "shortcut": "Ctrl+Shift+W",
   "enabled": true
 }
 ```
 
-**Usage:**
-- Select any phone number on a webpage → Right-click → "WhatsApp Cleaner" → Opens WhatsApp chat
-- Or use keyboard shortcut: Select number → Press `Ctrl+Shift+W`
+**WhatsApp Call:**
+```json
+{
+  "id": "whatsapp-call",
+  "type": "search",
+  "name": "WhatsApp Call",
+  "link": "https://wa-cleaner.yourname.workers.dev/?action=wcall&q=TESTSEARCH",
+  "shortcut": "Ctrl+Shift+C",
+  "enabled": true
+}
+```
 
-**Shortcut examples:**
-- `Ctrl+Shift+W` - Windows/Linux
-- `Alt+W` - Alternative
-- `Ctrl+Alt+W` - Another option
+**Phone Call:**
+```json
+{
+  "id": "phone-call",
+  "type": "search",
+  "name": "Phone Call",
+  "link": "https://wa-cleaner.yourname.workers.dev/?action=call&q=TESTSEARCH",
+  "shortcut": "Ctrl+Shift+P",
+  "enabled": true
+}
+```
+
+**Usage:**
+- Select any phone number on a webpage → Right-click → Choose action → Opens accordingly
+- Or use keyboard shortcuts: Select number → Press the configured shortcut
 
 ## 📦 Deployment
 
