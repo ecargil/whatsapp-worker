@@ -52,6 +52,8 @@ If no action is specified, defaults to `wchat`.
 
 ## 🔌 Browser Extension Integration
 
+### Option 1: Context Menu Search
+
 Perfect for use with **Context Menu Search** extension:
 
 **WhatsApp Chat:**
@@ -61,7 +63,6 @@ Perfect for use with **Context Menu Search** extension:
   "type": "search",
   "name": "WhatsApp Chat",
   "link": "https://wa-cleaner.yourname.workers.dev/?action=wchat&q=TESTSEARCH",
-  "shortcut": "Ctrl+Shift+W",
   "enabled": true
 }
 ```
@@ -73,7 +74,6 @@ Perfect for use with **Context Menu Search** extension:
   "type": "search",
   "name": "WhatsApp Call",
   "link": "https://wa-cleaner.yourname.workers.dev/?action=wcall&q=TESTSEARCH",
-  "shortcut": "Ctrl+Shift+C",
   "enabled": true
 }
 ```
@@ -85,14 +85,34 @@ Perfect for use with **Context Menu Search** extension:
   "type": "search",
   "name": "Phone Call",
   "link": "https://wa-cleaner.yourname.workers.dev/?action=call&q=TESTSEARCH",
-  "shortcut": "Ctrl+Shift+P",
   "enabled": true
 }
 ```
 
-**Usage:**
-- Select any phone number on a webpage → Right-click → Choose action → Opens accordingly
-- Or use keyboard shortcuts: Select number → Press the configured shortcut
+**Usage:** Select any phone number on a webpage → Right-click → Choose action
+
+### Option 2: One Click (Recommended)
+
+More visual option with **One Click** extension:
+
+**Configuration:**
+
+1. **WhatsApp Chat**
+   - Name: `WhatsApp Chat`
+   - URL: `https://wa-cleaner.yourname.workers.dev/?action=wchat&q=%s`
+   - Icon: `https://static.whatsapp.net/rsrc.php/v3/yz/r/ujTY9i_Jhs1.png`
+
+2. **WhatsApp Call**
+   - Name: `WhatsApp Call`
+   - URL: `https://wa-cleaner.yourname.workers.dev/?action=wcall&q=%s`
+   - Icon: `https://static.whatsapp.net/rsrc.php/v3/yz/r/ujTY9i_Jhs1.png`
+
+3. **Phone Call**
+   - Name: `Phone Call`
+   - URL: `https://wa-cleaner.yourname.workers.dev/?action=call&q=%s`
+   - Icon: `https://cdn-icons-png.flaticon.com/512/724/724664.png`
+
+**Usage:** Select phone number → Visual popup appears → Click icon
 
 ## 📦 Deployment
 
