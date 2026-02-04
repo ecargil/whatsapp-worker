@@ -38,11 +38,19 @@ Perfect for use with **Context Menu Search** extension:
   "type": "search",
   "name": "WhatsApp Cleaner",
   "link": "https://wa-cleaner.yourname.workers.dev/?q=TESTSEARCH",
+  "shortcut": "Ctrl+Shift+W",
   "enabled": true
 }
 ```
 
-Select any phone number on a webpage → Right-click → "WhatsApp Cleaner" → Opens WhatsApp chat
+**Usage:**
+- Select any phone number on a webpage → Right-click → "WhatsApp Cleaner" → Opens WhatsApp chat
+- Or use keyboard shortcut: Select number → Press `Ctrl+Shift+W`
+
+**Shortcut examples:**
+- `Ctrl+Shift+W` - Windows/Linux
+- `Alt+W` - Alternative
+- `Ctrl+Alt+W` - Another option
 
 ## 📦 Deployment
 
